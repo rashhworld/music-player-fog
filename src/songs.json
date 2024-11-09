@@ -1,0 +1,42 @@
+[
+    {
+        "title": "Billie Jean",
+        "image": "/images/banner/BillieJean.jpg",
+        "url": "/songs/Michael_Jackson_-_Billie_Jean.mp3",
+        "album": "Thriller",
+        "playId": "1.040.811.084",
+        "duration": 296
+    },
+    {
+        "title": "Beat It",
+        "image": "/images/banner/BeatIt.jpg",
+        "url": "/songs/Michael_Jackson_-_Beat_it.mp3",
+        "album": "Thriller",
+        "playId": "643.786.045",
+        "duration": 277
+    },
+    {
+        "title": "Smooth Criminal",
+        "image": "/images/banner/SmoothCriminal.jpg",
+        "url": "/songs/Michael_Jackson_-_Smooth_Criminal.mp3",
+        "album": "Bad",
+        "playId": "407.234.004",
+        "duration": 566
+    },
+    {
+        "title": "Don't Stop 'Til You Get Enough",
+        "image": "/images/banner/DontStop.jpg",
+        "url": "/songs/Michael_Jackson_-_Don_t_Stop_Till_You_Get_Enough.mp3",
+        "album": "Off the Wall",
+        "playId": "316.391.952",
+        "duration": 253
+    },
+    {
+        "title": "Rock with You",
+        "image": "/images/banner/RockWithYou.jpg",
+        "url": "/songs/Michael_Jackson_-_Rock_With_You.mp3",
+        "album": "Off the Wall",
+        "playId": "268.187.218",
+        "duration": 202
+    }
+]

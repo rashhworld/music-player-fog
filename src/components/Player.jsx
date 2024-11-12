@@ -11,9 +11,9 @@ const Player = ({
   prevSong,
   onPlayPause,
   isShuffled,
-  onShuffle,
+  setIsShuffled,
   isLooping,
-  onLoop,
+  setIsLooping,
 }) => {
   return (
     <div className="fixed xl:static bottom-0 w-full lg:w-[calc(100vw-16rem)] xl:w-96 flex flex-col justify-end bg-gradient-to-b from-[#260909] to-[#0D0C0C] lg:ml-64 xl:ml-0 xl:p-8">
@@ -41,7 +41,7 @@ const Player = ({
         <div className="flex justify-center items-center space-x-6 order-2 xl:order-3">
           <img
             src="/icons/loop.png"
-            onClick={duration ? onLoop : undefined}
+            onClick={() => setIsLooping(!isLooping)}
             className={`cursor-pointer h-5 w-5 ${
               isLooping ? "opacity-50" : ""
             }`}
@@ -50,19 +50,19 @@ const Player = ({
           <img
             src="/icons/prev.png"
             className="cursor-pointer h-5 w-5"
-            onClick={isShuffled ? onShuffle : prevSong}
+            onClick={prevSong}
             alt="previous"
           />
           <img
             src={`/icons/${isPlaying ? "pause" : "play"}.png`}
             className="p-2 bg-[#480000] rounded-lg h-10 cursor-pointer"
-            onClick={duration ? onPlayPause : undefined}
+            onClick={onPlayPause}
             alt="playPause"
           />
           <img
             src="/icons/next.png"
             className="cursor-pointer h-5 w-5"
-            onClick={isShuffled ? onShuffle : nextSong}
+            onClick={nextSong}
             alt="next"
           />
           <img
@@ -70,7 +70,7 @@ const Player = ({
             className={`cursor-pointer h-5 w-5 ${
               isShuffled ? "opacity-50" : ""
             }`}
-            onClick={onShuffle}
+            onClick={() => setIsShuffled(!isShuffled)}
             alt="shuffle"
           />
         </div>
@@ -79,10 +79,15 @@ const Player = ({
           <input
             type="range"
             min="0"
-            max="100"
-            value={(currentTime / duration) * 100 || 0}
+            max={duration || 0}
+            value={currentTime || 0}
             onChange={updateProgress}
-            className="w-full h-1"
+            className="w-full h-1 bg-gray-600 rounded-lg appearance-none cursor-pointer accent-[#CA0000]"
+            style={{
+              background: `linear-gradient(to right, #CA0000 ${
+                (currentTime / duration) * 100 || 0
+              }%, #4B4B4B ${(currentTime / duration) * 100 || 0}%)`,
+            }}
           />
           <span className="w-12 text-center">{formatTime(duration)}</span>
         </div>

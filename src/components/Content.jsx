@@ -46,6 +46,8 @@ const Content = ({
           list={displaySongs}
           setList={handleSort}
           animation={200}
+          delay={100}
+          delayOnTouchOnly={true}
         >
           {displaySongs.map((item, index) => (
             <tr
@@ -64,7 +66,13 @@ const Content = ({
                   <div className="h-16 w-1"></div>
                 </td>
               )}
-              <td className="px-4 hidden sm:table-cell">{index + 1}</td>
+              <td className="p-4 hidden sm:table-cell py-2">
+                {item.originalIndex === currentSong ? (
+                  <img src="/icons/playing.png" className="w-7" />
+                ) : (
+                  index + 1
+                )}
+              </td>
               <td className="px-4 py-2 max-w-[250px]">
                 <div className="flex items-center gap-3">
                   <img
